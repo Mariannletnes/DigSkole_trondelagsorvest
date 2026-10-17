@@ -10,32 +10,32 @@
 <meta property="og:image" content="https://mariannletnes.com/portrett-mork.jpg">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://mariannletnes.com/planlegging-design-for-laering-ki.html">
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='16' fill='%23332830'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='15' fill='%23F8F4F1' text-anchor='middle'%3EM%3C/text%3E%3C/svg%3E">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='16' fill='%231e2a45'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='15' fill='%23f0ece2' text-anchor='middle'%3EM%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Fraunces:ital,wght@0,9..144,300;0,9..144,400;1,9..144,300&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <style>
 /* ============ Tokens ============ */
 :root{
-  --paper:#FBF9F7;
-  --stone:#EDE7E2;
-  --surface:#FFFFFF;
-  --dark:#332830;
-  --plum:#6E4B57;
-  --ink:#4A3C43;
-  --body:#5E4F55;
-  --quiet:#7E6F74;
-  --hair:#E6DDD6;
-  --hair-stone:#DBD1C9;
-  --shadow:0 18px 40px rgba(51,40,48,.08);
+  /* DigSkole-paletten: de samme grunnfargene som ressursportalen. */
+  --paper:#f0ece2;
+  --stone:#ebe6dc;
+  --surface:#fffdf8;
+  --dark:#1e2a45;
+  --plum:#865e72;
+  --ink:#1e2a45;
+  --body:#555250;
+  --quiet:#686760;
+  --hair:#d9d5cc;
+  --hair-stone:#cac6bc;
+  --shadow:0 10px 30px rgba(30,42,69,.055);
 
-  /* De fire fasene i modellen. Turkis og oransje er de samme
-     som de to transformasjonssyklusene har i presentasjonen. */
-  --start:#6E4B57;  --start-soft:#F4EDEF;
-  --c1:#1B8283;     --c1-soft:#E2F3F1;
-  --c2:#B85C1A;     --c2-soft:#FCEBDC;
-  --all:#6E51A0;    --all-soft:#F0EBF8;
+  /* Fargede steg i planleggingen, fra marin via salvie til mauve. */
+  --start:#1e2a45;  --start-soft:#e5e7eb;
+  --c1:#516c61;     --c1-soft:#e7ebe6;
+  --c2:#855f74;     --c2-soft:#f0e4ea;
+  --all:#536775;    --all-soft:#e6ebec;
 }
 
 /* ============ Grunnlag ============ */
@@ -46,11 +46,9 @@ body{
   min-height:100vh;
   display:flex;
   flex-direction:column;
-  background:
-    radial-gradient(circle at 78% -5%, rgba(255,255,255,.92), rgba(255,255,255,0) 48%),
-    linear-gradient(180deg,#F6F1ED 0%, var(--stone) 100%);
+  background:var(--paper);
   color:var(--body);
-  font-family:'Jost',system-ui,sans-serif;
+  font-family:'DM Sans',system-ui,sans-serif;
   font-size:1.05rem;
   line-height:1.62;
   -webkit-font-smoothing:antialiased;
@@ -60,7 +58,7 @@ h1,h2,h3,p{margin:0}
 a{color:inherit}
 button{font-family:inherit;cursor:pointer}
 input,textarea{font-family:inherit}
-:focus-visible{outline:2px solid var(--plum);outline-offset:3px}
+:focus-visible{outline:3px solid #9e7a8a;outline-offset:3px}
 
 .wrap{max-width:780px;margin-inline:auto;width:100%;padding-inline:24px}
 
@@ -74,8 +72,9 @@ input,textarea{font-family:inherit}
   flex-wrap:wrap;
 }
 .signature{
-  font-family:'Cormorant Garamond',Georgia,serif;
+  font-family:'Fraunces',Georgia,serif;
   font-size:1.3rem;
+  font-weight:300;
   color:var(--ink);
   text-decoration:none;
 }
@@ -87,12 +86,12 @@ input,textarea{font-family:inherit}
   padding:22px 24px;
   background:var(--surface);
   border:1px solid var(--hair);
-  border-radius:22px;
+  border-radius:16px;
   box-shadow:var(--shadow);
 }
 .intro h1{
-  font-family:'Cormorant Garamond',Georgia,serif;
-  font-weight:500;
+  font-family:'Fraunces',Georgia,serif;
+  font-weight:300;
   font-size:clamp(1.9rem,4.4vw,2.5rem);
   line-height:1.1;
   color:var(--ink);
@@ -179,7 +178,7 @@ main{flex:1;padding-bottom:16px}
   padding:clamp(24px,4vw,38px);
   background:var(--surface);
   border:1px solid var(--hair);
-  border-radius:24px;
+  border-radius:16px;
   box-shadow:var(--shadow);
   border-top:6px solid var(--c, var(--plum));
 }
@@ -197,8 +196,8 @@ main{flex:1;padding-bottom:16px}
   margin-bottom:12px;
 }
 .step-title{
-  font-family:'Cormorant Garamond',Georgia,serif;
-  font-weight:500;
+  font-family:'Fraunces',Georgia,serif;
+  font-weight:300;
   font-size:clamp(1.7rem,4.4vw,2.35rem);
   line-height:1.12;
   color:var(--ink);
@@ -225,7 +224,7 @@ textarea{
   background:var(--paper);
   color:var(--ink);
   border:1px solid var(--hair);
-  border-radius:18px;
+  border-radius:12px;
   font-size:1.05rem;
   line-height:1.6;
   resize:vertical;
@@ -277,8 +276,8 @@ textarea::placeholder{color:var(--quiet)}
   margin-bottom:3px;
 }
 .plan-title{
-  font-family:'Cormorant Garamond',Georgia,serif;
-  font-weight:500;
+  font-family:'Fraunces',Georgia,serif;
+  font-weight:300;
   font-size:1.28rem;
   color:var(--ink);
   margin-bottom:5px;
@@ -300,7 +299,7 @@ textarea::placeholder{color:var(--quiet)}
 .download-btn{
   margin-top:16px;
   background:var(--dark);
-  color:#F7F1F2;
+  color:#fffdf8;
   border:none;
   font-size:1.02rem;
   padding:15px 28px;
@@ -320,7 +319,7 @@ textarea::placeholder{color:var(--quiet)}
 .btn-next{
   flex:1;
   background:var(--dark);
-  color:#F7F1F2;
+  color:#fffdf8;
   border:none;
   font-size:1.04rem;
   padding:16px 30px;
@@ -359,7 +358,7 @@ textarea::placeholder{color:var(--quiet)}
   background:var(--hair-stone);
   transition:background .3s ease;
 }
-.saved.on .saved-dot{background:#4F7D72}
+.saved.on .saved-dot{background:#5e6e67}
 .restart{
   background:none;
   border:none;
@@ -392,7 +391,7 @@ textarea::placeholder{color:var(--quiet)}
 
 <div class="top wrap">
   <span class="signature">Mari-Ann Letnes</span>
-  <span class="source">Selander &amp; Kress (2010) · Letnes (under utgivelse)</span>
+  <span class="source">Selander &amp; Kress (2012) · Letnes (under utgivelse)</span>
 </div>
 
 <div class="wrap">
@@ -744,7 +743,7 @@ textarea::placeholder{color:var(--quiet)}
     doc.setFont('helvetica', 'normal');
     doc.setFontSize(10);
     doc.setTextColor(120, 120, 120);
-    doc.text('Basert på Selander & Kress (2010), Design för lärande, og Letnes (under utgivelse)', margin, y);
+    doc.text('Basert på Selander & Kress (2012), Design för lärande, og Letnes (under utgivelse)', margin, y);
     doc.setTextColor(20, 20, 20);
     y += 14;
 
@@ -794,7 +793,7 @@ textarea::placeholder{color:var(--quiet)}
   function downloadAsTxt(){
     var lines = ['Design for læring med KI – Ungdomsskoleteamet · 8.–10. trinn'];
     if (moduleName.trim() !== ''){ lines.push('Fag og tema: ' + moduleName.trim()); }
-    lines.push('Basert på Selander & Kress (2010)', '');
+    lines.push('Basert på Selander & Kress (2012)', '');
     for (var i = 0; i < steps.length; i++){
       var s = steps[i];
       lines.push(s.kicker + ' — ' + s.title);
