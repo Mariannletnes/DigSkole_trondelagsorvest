@@ -1,7 +1,12 @@
 
 (function(){
  'use strict';
- const contexts=window.GENKI_DATA.stages;
+ const contexts={
+ sma:{label:'Småskolen',grades:'1.–4. trinn',strap:'Konkreter, samtale og praktisk utforsking. Digitale verktøy kan inngå i korte, begrunnede deler av fagarbeidet.'},
+ mellom:{label:'Mellomtrinnet',grades:'5.–7. trinn',strap:'Undersøkelser, faglige samtaler og egne representasjoner kan kombineres med digitale verktøy.'},
+ ungdom:{label:'Ungdomstrinnet',grades:'8.–10. trinn',strap:'Elevene kan undersøke, bearbeide og presentere fagstoff gjennom flere digitale representasjoner.'},
+ voksen:{label:'Voksenopplæringen',grades:'Voksne deltagere',strap:'Digitalt fagarbeid kan ta utgangspunkt i deltagernes hverdags- og yrkespraksiser.'}
+ };
  const order=['sma','mellom','ungdom','voksen'];
  const key='DigSkole-'+(document.body.dataset.module||'resource')+'-trinn';
  const q=new URLSearchParams(location.search).get('trinn');
@@ -14,7 +19,7 @@
  function stageNav(){const d=byId('stage-choices');if(!d)return;
  d.innerHTML=order.map(id=>`<button type="button" class="stage-choice" data-stage="${id}" aria-pressed="${id===chosen}">${fmt(contexts[id].label)}</button>`).join('');
  d.querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>choose(b.dataset.stage)));
- const e=byId('stage-context');if(e)e.innerHTML=`<strong>${view(contexts[chosen].label)} (${view(contexts[chosen].grades)})</strong><div>${view(contexts[chosen].strap)}. ${view(contexts[chosen].policy)}</div>`;
+ const e=byId('stage-context');if(e)e.innerHTML=`<strong>${view(contexts[chosen].label)} (${view(contexts[chosen].grades)})</strong><div>${view(contexts[chosen].strap)}</div>`;
  document.querySelectorAll('[data-stage-local-link]').forEach(a=>{const base=a.getAttribute('data-base')||a.getAttribute('href').split('?')[0];a.dataset.base=base;a.href=base+'?trinn='+chosen;});
  }
  function choose(id){chosen=id;try{localStorage.setItem(key,id)}catch(e){}
