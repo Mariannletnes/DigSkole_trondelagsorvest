@@ -33,7 +33,9 @@ function render(){
   <section class="digi-teacher"><h4>Lærerens didaktiske tilrettelegging</h4><p>${esc(teacher)}</p></section>
   <div class="digi-reflect"><span>Spørsmål til faglig samtale</span><p>${esc(question)}</p></div>
  </div>`;
+ window.dispatchEvent(new CustomEvent('digskole-practicechange',{detail:selected}));
 }
+window.DigSkolePractice={get:()=>selected};
 window.addEventListener('digskole-stagechange',render);
 render();
 })();
