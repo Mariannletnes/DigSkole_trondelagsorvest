@@ -1,9 +1,73 @@
 /* Selander & Kress – interaktiv modell. DigSkoles eksisterende farger og typografi. */
 .sk-interactive{--sk-cream:#f0ece2;--sk-navy:#1e2a45;--sk-rose:#9e7a8a;--sk-forest:#5e6e67;background:#fffdf8;border:1px solid #d9d5cc;border-radius:17px;overflow:hidden;box-shadow:0 7px 20px rgba(30,42,69,.035)}
-.sk-toolbar{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:21px 24px;background:#e8e4db;border-bottom:1px solid #d9d5cc}.sk-toolbar-title{display:flex;align-items:center;gap:15px;flex-wrap:wrap}.sk-tiny{font-size:11px;color:#5e6e67;font-weight:650;letter-spacing:.13em}.sk-toolbar-title strong{font-size:14px;font-weight:600}.sk-controls{display:flex;gap:8px}.sk-control{border:1px solid #b7b6ae;border-radius:9px;background:#fffdf8;color:#1e2a45;cursor:pointer;font:600 13px 'DM Sans',sans-serif;padding:10px 16px}.sk-control:disabled{opacity:.36;cursor:default}.sk-control:not(:disabled):hover{border-color:#9e7a8a}.sk-control-primary{background:#1e2a45;color:#fffdf8;border-color:#1e2a45}.sk-control-primary:not(:disabled):hover{background:#5e6e67;border-color:#5e6e67}
-.sk-step-tabs{display:grid;grid-template-columns:repeat(4,1fr);background:#fffdf8;border-bottom:1px solid #d9d5cc}.sk-step-tab{border:0;border-right:1px solid #e3dfd8;border-bottom:3px solid transparent;background:none;text-align:left;cursor:pointer;padding:16px 17px;color:#5a5650;font:500 13px/1.45 'DM Sans',sans-serif}.sk-step-tab:last-child{border-right:0}.sk-step-tab span{color:#9e7a8a;margin-right:8px;font-weight:650;letter-spacing:.04em}.sk-step-tab[aria-pressed=true]{color:#1e2a45;border-bottom-color:#9e7a8a;background:#f2ebed;font-weight:650}.sk-step-tab:hover{background:#f5f1ea}
-.sk-visual-scroll{width:100%;overflow-x:auto;background:#f9f7f1;scrollbar-color:#c0b8b0 transparent}.sk-diagram{display:block;width:100%;min-width:920px;height:auto}.sk-diagram text{font-family:'DM Sans',system-ui,sans-serif;fill:#1e2a45}.sk-diagram .sk-svg-small-label{font-size:14px;font-weight:700;letter-spacing:1.2px}.sk-diagram .sk-svg-helper{font-size:13px;fill:#3f554e}.sk-diagram .sk-svg-kicker{font-size:11.5px;font-weight:700;letter-spacing:.45px;fill:#5e6e67}.sk-diagram .sk-svg-mauve{fill:#9e7a8a}.sk-diagram .sk-svg-white{fill:#fffdf8}.sk-diagram .sk-svg-cycle{font-size:14px;font-weight:700;letter-spacing:.7px;fill:#476557}.sk-diagram .sk-svg-heading{font-size:16px;font-weight:600}.sk-diagram .sk-svg-body{font-size:15px;font-weight:500}.sk-diagram .sk-svg-minor{font-size:12.5px;fill:#5a5650}.sk-diagram [data-sk-reveal]{opacity:0;visibility:hidden;transition:opacity .3s ease,visibility .3s ease}.sk-diagram [data-sk-reveal].sk-visible{opacity:1;visibility:visible}
-.sk-caption{padding:10px 24px 16px;font-size:12px;color:#67625d;background:#f9f7f1;border-bottom:1px solid #e3dfd8;line-height:1.6}.sk-reading{display:grid;grid-template-columns:1.4fr 1fr;gap:26px;padding:28px;background:#fffdf8}.sk-reading-kicker,.sk-question span{font-size:11px;font-weight:650;letter-spacing:.13em;color:#9e7a8a}.sk-reading h3{font:350 27px/1.28 'Fraunces',Georgia,serif;margin:8px 0 12px;color:#1e2a45}.sk-reading p{color:#555250;font-size:15px;line-height:1.75;margin:0}.sk-question{padding:20px 22px;background:#e7ebe5;border-left:3px solid #5e6e67;border-radius:4px 12px 12px 4px}.sk-question span{color:#5e6e67}.sk-question p{margin-top:9px}.sk-slide-note{font-size:12px;padding:0 28px 23px;color:#77716a}
-@media(max-width:780px){.sk-toolbar{align-items:flex-start;flex-direction:column;padding:17px}.sk-controls{width:100%}.sk-control{flex:1}.sk-step-tabs{grid-template-columns:repeat(2,1fr)}.sk-step-tab:nth-child(2){border-right:0}.sk-step-tab{padding:12px;font-size:12px}.sk-reading{grid-template-columns:1fr;padding:20px;gap:16px}.sk-diagram{width:920px}.sk-caption{padding:11px 19px}.sk-slide-note{padding:0 20px 20px}.sk-reading h3{font-size:25px}}
+.sk-toolbar{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:21px 24px;background:#e8e4db;border-bottom:1px solid #d9d5cc}
+.sk-toolbar-title{display:flex;align-items:center;gap:15px;flex-wrap:wrap}
+.sk-tiny{font-size:11px;color:#5e6e67;font-weight:650;letter-spacing:.13em}
+.sk-toolbar-title strong{font-size:14px;font-weight:600}
+.sk-controls{display:flex;gap:8px}
+.sk-control{border:1px solid #b7b6ae;border-radius:9px;background:#fffdf8;color:#1e2a45;cursor:pointer;font:600 13px 'DM Sans',sans-serif;padding:10px 16px}
+.sk-control:disabled{opacity:.36;cursor:default}
+.sk-control:not(:disabled):hover{border-color:#9e7a8a}
+.sk-control-primary{background:#1e2a45;color:#fffdf8;border-color:#1e2a45}
+.sk-control-primary:not(:disabled):hover{background:#5e6e67;border-color:#5e6e67}
+
+.sk-step-tabs{display:grid;grid-template-columns:repeat(5,1fr);background:#fffdf8;border-bottom:1px solid #d9d5cc}
+.sk-step-tab{border:0;border-right:1px solid #e3dfd8;border-bottom:3px solid transparent;background:none;text-align:left;cursor:pointer;padding:16px 17px;color:#5a5650;font:500 13px/1.45 'DM Sans',sans-serif}
+.sk-step-tab:last-child{border-right:0}
+.sk-step-tab span{color:#9e7a8a;margin-right:8px;font-weight:650;letter-spacing:.04em}
+.sk-step-tab[aria-pressed=true]{color:#1e2a45;border-bottom-color:#9e7a8a;background:#f2ebed;font-weight:650}
+.sk-step-tab:hover{background:#f5f1ea}
+
+.sk-visual-scroll{width:100%;overflow-x:auto;background:#f9f7f1;scrollbar-color:#c0b8b0 transparent}
+.sk-diagram{display:block;width:100%;min-width:1060px;height:auto}
+.sk-diagram text{font-family:'DM Sans',system-ui,sans-serif;fill:#1e2a45}
+.sk-diagram .sk-svg-small-label{font-size:14px;font-weight:700;letter-spacing:1.2px}
+.sk-diagram .sk-svg-helper{font-size:13px;fill:#3f554e}
+.sk-diagram .sk-svg-kicker{font-size:11.5px;font-weight:700;letter-spacing:.45px;fill:#5e6e67}
+.sk-diagram .sk-svg-mauve{fill:#9e7a8a}
+.sk-diagram .sk-svg-white{fill:#fffdf8}
+.sk-diagram .sk-svg-cycle{font-size:14px;font-weight:700;letter-spacing:.7px;fill:#476557}
+.sk-diagram .sk-svg-heading{font-size:16px;font-weight:600}
+.sk-diagram .sk-svg-body{font-size:15px;font-weight:500}
+.sk-diagram .sk-svg-minor{font-size:12px;fill:#5a5650}
+.sk-diagram [data-sk-reveal]{opacity:0;visibility:hidden;transition:opacity .3s ease,visibility .3s ease}
+.sk-diagram [data-sk-reveal].sk-visible{opacity:1;visibility:visible}
+
+.sk-caption{padding:10px 24px 12px;font-size:12px;color:#67625d;background:#f9f7f1;border-bottom:1px solid #e3dfd8;line-height:1.6}
+
+.sk-reading{display:grid;grid-template-columns:1.4fr 1fr;gap:26px;padding:28px;background:#fffdf8}
+.sk-reading-kicker,.sk-question span{font-size:11px;font-weight:650;letter-spacing:.13em;color:#9e7a8a}
+.sk-reading h3{font:350 27px/1.28 'Fraunces',Georgia,serif;margin:8px 0 12px;color:#1e2a45}
+.sk-reading p{color:#555250;font-size:15px;line-height:1.75;margin:0}
+.sk-question{padding:20px 22px;background:#e7ebe5;border-left:3px solid #5e6e67;border-radius:4px 12px 12px 4px}
+.sk-question span{color:#5e6e67}
+.sk-question p{margin-top:9px}
+.sk-slide-note{font-size:12px;padding:0 28px 23px;color:#77716a}
+
+@media(max-width:780px){
+  .sk-toolbar{align-items:flex-start;flex-direction:column;padding:17px}
+  .sk-controls{width:100%}
+  .sk-control{flex:1}
+  .sk-step-tabs{grid-template-columns:repeat(2,1fr)}
+  .sk-step-tab{padding:12px;font-size:12px}
+  .sk-reading{grid-template-columns:1fr;padding:20px;gap:16px}
+  .sk-diagram{width:1060px}
+  .sk-caption{padding:11px 19px}
+  .sk-slide-note{padding:0 20px 20px}
+  .sk-reading h3{font-size:25px}
+}
 @media(prefers-reduced-motion:reduce){.sk-diagram [data-sk-reveal]{transition:none}}
 @media print{.sk-visual-scroll{overflow:visible}.sk-diagram [data-sk-reveal]{opacity:1!important;visibility:visible!important}.sk-toolbar,.sk-step-tabs,.sk-slide-note{display:none}.sk-diagram{min-width:0}}
+
+/* Synlig språkpakke med forklaringer ved hover, tastaturfokus og trykk. */
+.sk-hotspot{cursor:help;outline:none}
+.sk-hit-area{fill:transparent;pointer-events:all;stroke:transparent;stroke-width:2.5px;transition:fill .15s ease,stroke .15s ease}
+.sk-hotspot:hover .sk-hit-area,.sk-hotspot:focus-visible .sk-hit-area,.sk-hotspot.sk-selected .sk-hit-area{fill:rgba(158,122,138,.11);stroke:rgba(158,122,138,.85)}
+.sk-glossary{background:#edf1eb;border-top:1px solid #d6e0d8;border-bottom:1px solid #d6e0d8;padding:20px 24px 24px}
+.sk-glossary-top{display:flex;align-items:baseline;justify-content:space-between;gap:14px;flex-wrap:wrap}
+.sk-glossary-kicker{font-size:11px;letter-spacing:.14em;font-weight:700;color:#5e6e67}
+.sk-glossary-hint{font-size:12px;color:#666b63}
+.sk-glossary h3{color:#1e2a45;font:350 23px/1.32 'Fraunces',Georgia,serif;margin:10px 0 8px}
+.sk-glossary p{font-size:14px;line-height:1.7;margin:0;color:#414944;max-width:850px}
+@media(max-width:780px){.sk-glossary{padding:16px 19px 20px}.sk-glossary h3{font-size:21px}}
+@media(prefers-reduced-motion:reduce){.sk-hit-area{transition:none}}
