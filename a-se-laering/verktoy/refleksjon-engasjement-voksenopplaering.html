@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+
+<html lang="nb">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="noindex" name="robots"/>
+<title>Fra engasjement til tegn på læring – Voksenopplæringsteamet | DigSkole</title>
+<meta content="Refleksjonsoppgave om tegn på læring og engasjement for voksenopplæringsteamet." name="description"/>
+<meta content="Fra engasjement til tegn på læring – Voksenopplæringsteamet" property="og:title"/>
+<meta content="https://mariannletnes.com/portrett-mork.jpg" property="og:image"/>
+<meta content="article" property="og:type"/>
+<meta content="https://mariannletnes.com/refleksjon-engasjement.html" property="og:url"/>
+<link href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='16' fill='%23332830'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='15' fill='%23F8F4F1' text-anchor='middle'%3EM%3C/text%3E%3C/svg%3E" rel="icon" type="image/svg+xml"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500&amp;family=Jost:wght@300;400;500&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<style>
+/* ============ Tokens ============ */
+:root{
+  --paper:#F8F4F1;
+  --stone:#EDE7E2;
+  --dark:#332830;
+  --plum:#6E4B57;
+  --ink:#4A3C43;
+  --body:#5E4F55;
+  --quiet:#7E6F74;
+  --hair:#E1D8D1;
+  --hair-stone:#DBD1C9;
+
+  /* Fargene fra sliden */
+  --beh:#F0BF00;  --beh-soft:#FFF7D3;  --beh-text:#937300;
+  --emo:#D652A0;  --emo-soft:#FCE8F4;  --emo-text:#9B3170;
+  --cog:#2AA9AA;  --cog-soft:#E4F5F4;  --cog-text:#197C7E;
+  --age:#EF7B20;  --age-soft:#FCEBDD;  --age-text:#A94F11;
+}
+
+/* ============ Grunnlag ============ */
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  background:var(--stone);
+  color:var(--body);
+  font-family:'Jost',system-ui,sans-serif;
+  font-size:1rem;
+  line-height:1.55;
+  -webkit-tap-highlight-color:transparent;
+}
+h1,h2,h3,p{margin:0}
+a{color:inherit}
+button,textarea{font-family:inherit}
+button{cursor:pointer}
+:focus-visible{outline:2px solid var(--plum);outline-offset:3px}
+
+/* ============ Topp ============ */
+.top{
+  padding:20px 20px 8px;
+  display:flex;
+  align-items:baseline;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:8px;
+}
+.signature{
+  font-family:'Cormorant Garamond',Georgia,serif;
+  font-size:1.25rem;
+  font-weight:400;
+  color:var(--ink);
+  text-decoration:none;
+}
+.source{font-size:.86rem;color:var(--quiet)}
+
+main{
+  flex:1;
+  width:100%;
+  max-width:760px;
+  margin:0 auto;
+  padding:8px 20px 36px;
+}
+
+.intro{margin-bottom:18px}
+.step-title{
+  font-family:'Cormorant Garamond',Georgia,serif;
+  font-weight:500;
+  font-size:1.95rem;
+  line-height:1.15;
+  color:var(--ink);
+  margin-bottom:8px;
+}
+.step-desc{
+  font-size:1rem;
+  line-height:1.6;
+  max-width:680px;
+}
+
+/* ============ Framgangsmåte ============ */
+.steps{
+  list-style:none;
+  padding:0;
+  margin:20px 0 26px;
+  display:grid;
+  gap:12px;
+}
+.step{
+  background:var(--paper);
+  border:1px solid var(--hair-stone);
+  padding:15px 16px;
+  display:grid;
+  grid-template-columns:42px 1fr;
+  gap:12px;
+}
+.step-num{
+  width:34px;
+  height:34px;
+  border-radius:50%;
+  background:var(--dark);
+  color:#F7F1F2;
+  display:grid;
+  place-items:center;
+  font-size:.95rem;
+  font-weight:500;
+}
+.step h2{
+  font-family:'Cormorant Garamond',Georgia,serif;
+  font-size:1.3rem;
+  font-weight:500;
+  color:var(--ink);
+  line-height:1.2;
+  margin:1px 0 5px;
+}
+.step p{font-size:.95rem}
+
+/* ============ Seksjon ============ */
+.section{
+  margin-top:24px;
+  padding-top:20px;
+  border-top:1px solid var(--hair);
+}
+.section > h2{
+  font-family:'Cormorant Garamond',Georgia,serif;
+  font-weight:500;
+  font-size:1.4rem;
+  color:var(--ink);
+  margin-bottom:6px;
+}
+.section p.lead{
+  font-size:.95rem;
+  margin-bottom:13px;
+}
+
+/* ============ De fire blikkene ============ */
+.lenses{
+  list-style:none;
+  padding:0;
+  margin:0;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:11px;
+}
+.lens{
+  /* display:flex overstyrer nettleserens egen midtstilling inne i <button>. */
+  display:flex;
+  flex-direction:column;
+  position:relative;
+  width:100%;
+  height:100%;
+  min-height:128px;
+  overflow:hidden;
+  background:var(--paper);
+  border:1px solid var(--hair-stone);
+  padding:15px 14px 14px 18px;
+  text-align:left;
+  transition:transform .15s ease, border-color .15s ease, background .15s ease;
+}
+.lens::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:0;
+  bottom:0;
+  width:7px;
+  background:var(--c);
+}
+.lens:hover{transform:translateY(-1px)}
+.lens small{
+  display:block;
+  font-size:.78rem;
+  margin-bottom:5px;
+  text-transform:uppercase;
+  letter-spacing:.045em;
+  font-weight:500;
+  color:var(--c-text);
+}
+.lens strong{
+  display:block;
+  color:var(--ink);
+  font-size:1rem;
+  font-weight:500;
+  line-height:1.35;
+}
+.lens span{
+  display:block;
+  color:var(--body);
+  font-size:.87rem;
+  line-height:1.42;
+  margin-top:6px;
+}
+.lens em{
+  display:block;
+  margin-top:auto;
+  padding-top:9px;
+  font-style:normal;
+  font-size:.8rem;
+  font-weight:500;
+  color:var(--c-text);
+}
+
+.lens.beh{--c:var(--beh); --c-soft:var(--beh-soft); --c-text:var(--beh-text)}
+.lens.emo{--c:var(--emo); --c-soft:var(--emo-soft); --c-text:var(--emo-text)}
+.lens.cog{--c:var(--cog); --c-soft:var(--cog-soft); --c-text:var(--cog-text)}
+.lens.age{--c:var(--age); --c-soft:var(--age-soft); --c-text:var(--age-text)}
+
+.lens:hover,
+.lens[aria-pressed="true"]{
+  border-color:var(--c);
+  background:var(--c-soft);
+}
+.lens[aria-pressed="true"]{box-shadow:0 0 0 2px var(--c)}
+
+/* ============ Fagpanelet som åpner seg ============ */
+.info{
+  display:none;
+  margin-top:14px;
+  background:var(--paper);
+  border:1px solid var(--hair-stone);
+  border-top:7px solid var(--c, var(--plum));
+}
+.info.show{display:block}
+.info-top{
+  padding:14px 18px 12px;
+  border-bottom:1px solid var(--hair);
+}
+.info-top small{
+  display:block;
+  font-size:.78rem;
+  text-transform:uppercase;
+  letter-spacing:.045em;
+  font-weight:500;
+  color:var(--c-text, var(--plum));
+  margin-bottom:3px;
+}
+.info-top h3{
+  font-family:'Cormorant Garamond',Georgia,serif;
+  font-weight:500;
+  font-size:1.45rem;
+  line-height:1.15;
+  color:var(--ink);
+}
+.info-content{padding:16px 18px 18px}
+.info-content h4{
+  font-family:'Cormorant Garamond',Georgia,serif;
+  font-weight:500;
+  font-size:1.16rem;
+  color:var(--ink);
+  margin:18px 0 6px;
+}
+.info-content h4:first-child{margin-top:0}
+.info-content p{font-size:.94rem;line-height:1.55}
+.info-content p + p{margin-top:8px}
+
+.info-list{
+  margin:8px 0 0;
+  padding-left:1.15rem;
+}
+.info-list li{
+  font-size:.94rem;
+  line-height:1.5;
+  margin-bottom:5px;
+}
+.info-signs{
+  list-style:none;
+  margin:8px 0 0;
+  padding:0;
+}
+.info-signs li{
+  position:relative;
+  padding-left:18px;
+  font-size:.94rem;
+  line-height:1.5;
+  margin-bottom:5px;
+}
+.info-signs li::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:.58em;
+  width:7px;
+  height:7px;
+  border-radius:50%;
+  background:var(--c);
+}
+.info-quotes li{font-style:italic}
+
+.info-caution{
+  margin-top:8px;
+  padding:13px 15px;
+  background:#F3EEEA;
+  border-left:4px solid var(--c, var(--plum));
+}
+.info-caution p{color:var(--ink)}
+
+.info-source{
+  margin-top:16px;
+  padding-top:12px;
+  border-top:1px solid var(--hair);
+  font-size:.83rem;
+  line-height:1.5;
+  color:var(--quiet);
+}
+
+/* ============ Skrivefelt ============ */
+.note-wrap{margin-top:15px}
+label{
+  display:block;
+  font-size:.9rem;
+  color:var(--plum);
+  margin-bottom:6px;
+}
+textarea{
+  width:100%;
+  min-height:108px;
+  background:var(--paper);
+  color:var(--ink);
+  border:1px solid var(--hair-stone);
+  padding:12px 13px;
+  font-size:.96rem;
+  line-height:1.5;
+  resize:vertical;
+}
+textarea::placeholder{color:var(--quiet)}
+
+.prompt-box{
+  margin-top:15px;
+  background:var(--paper);
+  border-left:4px solid var(--plum);
+  padding:14px 16px;
+}
+.prompt-box p{font-size:.94rem}
+.prompt-box p + p{margin-top:8px}
+
+.group-prompt{
+  margin-top:17px;
+  padding:16px;
+  background:#F3EEEA;
+  border:1px solid var(--hair-stone);
+}
+.group-prompt strong{
+  display:block;
+  color:var(--ink);
+  font-weight:500;
+  margin-bottom:6px;
+}
+.group-prompt p{font-size:.94rem}
+
+/* ============ Fargenøkkel ============ */
+.color-key{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px 14px;
+  margin:4px 0 14px;
+  font-size:.82rem;
+  color:var(--quiet);
+}
+.key{display:flex;align-items:center;gap:6px}
+.dot{width:10px;height:10px;border-radius:50%}
+.dot.beh{background:var(--beh)}
+.dot.emo{background:var(--emo)}
+.dot.cog{background:var(--cog)}
+.dot.age{background:var(--age)}
+
+/* ============ Knapper ============ */
+.actions{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-top:20px;
+  gap:14px;
+  flex-wrap:wrap;
+}
+.reset{
+  background:none;
+  border:none;
+  padding:0 0 2px;
+  color:var(--quiet);
+  font-size:.92rem;
+  box-shadow:inset 0 -1px 0 var(--hair-stone);
+}
+.reset:hover{color:var(--plum);box-shadow:inset 0 -1px 0 var(--plum)}
+.download-btn{
+  background:var(--dark);
+  color:#F7F1F2;
+  border:none;
+  font-size:.96rem;
+  padding:12px 22px;
+}
+.download-btn:hover{background:var(--ink)}
+.footer-note{
+  margin-top:18px;
+  font-size:.84rem;
+  color:var(--quiet);
+  line-height:1.5;
+}
+
+/* ============ Litteratur ============ */
+.literature{
+  margin-top:26px;
+  padding-top:18px;
+  border-top:1px solid var(--hair);
+}
+.literature h2{
+  font-family:'Cormorant Garamond',Georgia,serif;
+  font-weight:500;
+  font-size:1.2rem;
+  color:var(--ink);
+  margin-bottom:8px;
+}
+.literature ul{list-style:none;margin:0;padding:0}
+.literature li{
+  font-size:.86rem;
+  line-height:1.5;
+  color:var(--quiet);
+  padding-left:1.5rem;
+  text-indent:-1.5rem;
+  margin-bottom:8px;
+}
+
+/* ============ Mobil ============ */
+@media (max-width:560px){
+  .lenses{grid-template-columns:1fr}
+  .step-title{font-size:1.72rem}
+  .info-content{padding:14px 15px 16px}
+  .info-top{padding:13px 15px 11px}
+}
+
+/* ============ Redusert bevegelse ============ */
+@media (prefers-reduced-motion:reduce){
+  *{transition:none !important}
+}
+
+/* DigSkole: felles form, trinnvise faglige eksempler */
+.team-nav{display:flex;flex-wrap:wrap;gap:7px 12px;margin:2px 0 21px;}
+.team-nav a{font-size:.82rem;text-decoration:none;color:var(--plum);border:1px solid var(--hair-stone);padding:6px 10px;background:var(--paper);}
+.team-nav a[aria-current="page"]{background:var(--dark);color:var(--paper);border-color:var(--dark);}
+.team-nav a:hover:not([aria-current="page"]){border-color:var(--plum);}
+.team-badge{font-size:.75rem;color:var(--plum);text-transform:uppercase;letter-spacing:.1em;font-weight:500;margin-bottom:8px;}
+.example-case{background:#F8F4F1;border:1px solid var(--hair-stone);border-left:5px solid var(--plum);padding:16px 18px;margin:6px 0 17px;}
+.example-case .case-label{font-size:.77rem;text-transform:uppercase;letter-spacing:.07em;font-weight:500;color:var(--plum);margin-bottom:9px;}
+.example-case p{font-size:.95rem;line-height:1.55;}
+.example-case .case-question{font-weight:500;color:var(--ink);margin-top:10px;}
+.applied-case{margin-top:22px;padding:14px 16px;background:#F4F1EE;border-left:4px solid var(--c, var(--plum));}
+.applied-case h4{margin-top:15px;font-size:1.1rem;}
+.applied-case h4:first-child{margin-top:0;}
+.application-credit{font-size:.78rem !important;color:var(--quiet);margin-top:12px !important;}
+.important-note{margin-top:15px;background:var(--paper);border-left:4px solid var(--plum);padding:13px 16px;}
+.important-note strong{color:var(--ink);font-weight:500;}
+.important-note p{font-size:.93rem;margin-top:6px;line-height:1.52;}
+.group-prompt .team-goal{font-weight:500;color:var(--plum);margin:8px 0 12px;}
+@media(max-width:560px){.team-nav a{font-size:.78rem;padding:7px 8px;}.example-case{padding:13px 14px;}}
+</style>
+</head>
+<body>
+<div class="top">
+<a class="signature" href="../index.html">Mari-Ann Letnes</a>
+<span class="source">DigSkole · Voksenopplæringsteamet</span>
+</div>
+<main>
+<nav aria-label="Versjoner for de ulike teamene" class="team-nav"><a href="refleksjon-engasjement-smaskole.html">Småskole</a><a href="refleksjon-engasjement-mellomtrinn.html">Mellomtrinn</a><a href="refleksjon-engasjement-ungdomsskole.html">Ungdomsskole</a><a aria-current="page" href="refleksjon-engasjement-voksenopplaering.html">Voksenopplæring</a></nav><div class="intro"><div class="team-badge">Voksenopplæringsteamet · Voksne deltagere</div>
+<h1 class="step-title">Fra engasjement til tegn på læring</h1>
+<p class="step-desc">Å se faglig forståelse uten å forveksle språk, trygghet og erfaring med kompetanse. Ta utgangspunkt i en konkret læringssituasjon fra egen praksis. Skill mellom det dere observerer, det dere tolker, og det dere trenger å undersøke videre.</p>
+</div>
+<ol class="steps">
+<li class="step">
+<div aria-hidden="true" class="step-num">1</div>
+<div>
+<h2>Hent fram en situasjon</h2>
+<p>Ta fram en situasjon der voksne deltagere skulle bruke faglig eller praktisk informasjon. Hva var synlig av forståelse, uavhengig av språklig flyt?</p>
+</div>
+</li>
+<li class="step">
+<div aria-hidden="true" class="step-num">2</div>
+<div>
+<h2>Velg ett blikk</h2>
+<p>Velg ett engasjementsblikk. Hva forteller handlingene, og hvilke alternative tolkninger må dere vurdere?</p>
+</div>
+</li>
+<li class="step">
+<div aria-hidden="true" class="step-num">3</div>
+<div>
+<h2>Snakk to og to</h2>
+<p>Presenter situasjonen for en kollega. La kollegaen spørre: «Hva vet vi om innholdsforståelsen, og hva kan skyldes språk, trygghet eller støtteverktøy?» Bytt roller.</p>
+</div>
+</li>
+<li class="step">
+<div aria-hidden="true" class="step-num">4</div>
+<div>
+<h2>Undersøk sammen</h2>
+<p>Velg en endring i ressursene eller oppgaven som både anerkjenner deltagernes erfaringer og gir bedre grunnlag for å vurdere læring.</p>
+</div>
+</li>
+</ol>
+<div class="section">
+<h2>Velg ett blikk på læringssituasjonen</h2>
+<p class="lead">Fargene følger de fire engasjementsdimensjonene fra forelesningen. Velg én dimensjon og undersøk både hva den kan gjøre synlig og hvilke slutninger om læring som krever mer informasjon.</p>
+<section aria-label="Felles eksempel" class="example-case"><p class="case-label">Felles eksempel · Praktisk fagtekst i voksenopplæringen: Forstå og bruke informasjon.</p><p>I voksenopplæringen arbeider deltagere med en praktisk tekst om rettigheter og plikter på en arbeidsplass. Noen bruker egne språk, oversettelsesverktøy eller KI som støtte. En deltager gjengir teksten flytende, mens en annen gir et presist eksempel med få norske ord.</p><p class="case-question">Hva ser læreren – og hva kan læreren faktisk vite om deltagerens læring?</p></section><div aria-hidden="true" class="color-key">
+<span class="key"><span class="dot beh"></span>Atferdsmessig</span>
+<span class="key"><span class="dot emo"></span>Emosjonelt</span>
+<span class="key"><span class="dot cog"></span>Kognitivt</span>
+<span class="key"><span class="dot age"></span>Agentisk</span>
+</div>
+<ul class="lenses">
+<li>
+<button aria-controls="info" aria-pressed="false" class="lens beh" data-dim="beh" data-q="Hva gjorde deltageren faktisk?" data-title="Atferdsmessig engasjement" type="button">
+<small>Atferdsmessig</small>
+<strong>Hva gjorde deltageren faktisk?</strong>
+<span>Taushet eller aktiv samtale forteller ikke hele historien.</span>
+<em>Les mer →</em>
+</button>
+</li>
+<li>
+<button aria-controls="info" aria-pressed="false" class="lens emo" data-dim="emo" data-q="Hva gjorde innholdet meningsfullt?" data-title="Emosjonelt engasjement" type="button">
+<small>Emosjonelt</small>
+<strong>Hva gjorde innholdet meningsfullt?</strong>
+<span>Relevans, trygghet, mestring og sårbarhet.</span>
+<em>Les mer →</em>
+</button>
+</li>
+<li>
+<button aria-controls="info" aria-pressed="false" class="lens cog" data-dim="cog" data-q="Hva tydet på egen forståelse?" data-title="Kognitivt engasjement" type="button">
+<small>Kognitivt</small>
+<strong>Hva tydet på egen forståelse?</strong>
+<span>Kunne deltageren anvende innholdet i en ny situasjon?</span>
+<em>Les mer →</em>
+</button>
+</li>
+<li>
+<button aria-controls="info" aria-pressed="false" class="lens age" data-dim="age" data-q="Hvordan bidro deltageren selv?" data-title="Agentisk engasjement" type="button">
+<small>Agentisk</small>
+<strong>Hvordan bidro deltageren selv?</strong>
+<span>Egne spørsmål, erfaringer, behov og valg av støtte.</span>
+<em>Les mer →</em>
+</button>
+</li>
+</ul>
+<!-- Fagpanelet fylles fra dataene nederst på siden -->
+<div class="info" id="info" tabindex="-1">
+<div class="info-top">
+<small id="infoLabel"></small>
+<h3 id="infoTitle"></h3>
+</div>
+<div class="info-content">
+<h4>Hva begrepet rommer</h4>
+<div id="infoMeaning"></div>
+<h4 id="infoSignsHeading">Mulige tegn på engasjement</h4>
+<p id="infoSignsIntro"></p>
+<ul class="info-signs" id="infoSigns"></ul>
+<h4>Verdt å merke seg</h4>
+<div class="info-caution" id="infoCaution"></div>
+<div class="applied-case"><h4>Et tenkt eksempel fra voksenopplæringen</h4><p id="infoExample"></p><h4>Hva kan vi slutte om læring?</h4><p id="infoAssessment"></p><h4>Et didaktisk grep for å undersøke videre</h4><p id="infoMove"></p><p class="application-credit">Eksemplene er didaktiske illustrasjoner tilpasset teamet, ikke cases fra forskningsartiklene.</p></div><p class="info-source" id="infoSource"></p>
+</div>
+</div>
+<div class="note-wrap">
+<label for="ownNote">Skriv kort om observasjon, tolkning og det dere fortsatt trenger å vite</label>
+<textarea id="ownNote" placeholder="Hva så vi? Hva kan det bety? Hva trenger vi mer informasjon om?"></textarea>
+</div>
+<div class="prompt-box">
+<p><strong>To og to: </strong>Hva la dere merke til, og hvilke andre tolkninger kan være mulige?</p>
+<p><strong>Fire sammen: </strong>Hva må endres i oppgaven eller samtalen for å få et mer gyldig grunnlag for å forstå hva den lærende mestrer?</p>
+</div>
+<div class="important-note"><strong>Skillet vi må holde fast ved</strong><p>Engasjement kan gi viktige tegn, men er ikke det samme som dokumentert faglig forståelse. Vurder hva oppgaven faktisk gir anledning til å vise.</p><p>Skille mellom kompetansen som skal vurderes og språkferdighetene oppgaven samtidig krever. Det er særlig viktig når språket ikke er selve læringsmålet.</p></div><div class="group-prompt">
+<strong id="groupHeading">Én innsikt og ett grep for videre undervisning</strong><p class="team-goal">Velg én faglig forståelse dere vil undersøke, og en uttrykksmåte som ikke skaper unødvendige språklige barrierer.</p>
+<p id="groupQuestion">Hvordan kan vi bruke deltagernes ressurser, språk og erfaringer uten at vurderingen reduseres til språklig flyt eller synlig selvsikkerhet?</p>
+<div class="note-wrap">
+<textarea aria-labelledby="groupHeading groupQuestion" id="groupNote" placeholder="Hva vil vi gjøre annerledes – og hva vil vi se etter som tegn på faglig læring?"></textarea>
+</div>
+</div>
+<div class="actions">
+<button class="reset" id="resetBtn" type="button">Start på nytt</button>
+<button class="download-btn" id="downloadBtn" type="button">Last ned refleksjonen som PDF</button>
+</div>
+<p class="footer-note">Notatene lagres bare i nettleseren mens siden er åpen. Ingenting sendes videre.</p>
+</div>
+<div class="literature">
+<h2>Litteratur</h2>
+<ul>
+<li>Fredricks, J. A., Blumenfeld, P. C. &amp; Paris, A. H. (2004). School engagement: Potential of the concept, state of the evidence. <em>Review of Educational Research, 74</em>(1), 59–109.</li>
+<li>Reeve, J. &amp; Tseng, C.-M. (2011). Agency as a fourth aspect of students’ engagement during learning activities. <em>Contemporary Educational Psychology, 36</em>(4), 257–267.</li>
+</ul>
+</div>
+</main>
+<script>
+/* ============================================================
+   Fagstoffet bak hver dimensjon.
+   Kildene er Fredricks, Blumenfeld & Paris (2004) for de tre
+   første dimensjonene, og Reeve & Tseng (2011) for den fjerde.
+   ============================================================ */
+var dimensions = {
+  beh: {
+    label: "Atferdsmessig engasjement",
+    title: "Hva så du faktisk?",
+    meaning: [
+      "Fredricks, Blumenfeld og Paris viser at begrepet brukes om tre ulike ting i forskningen. Det første er oppførsel: å følge de reglene som gjelder i rommet. Det andre er involvering i selve oppgaven, gjennom innsats, utholdenhet, oppmerksomhet og spørsmål. Det tredje er deltakelse i fellesskapet utover den enkelte økta.",
+      "Finn rangerer deltakelse i fire nivåer. Nederst ligger det å svare på det den som leder ber om. Øverst ligger deltakelse som krever eget initiativ."
+    ],
+    signs: [
+      "Oppmerksomhet rettet mot det som skjer",
+      "Innsats og utholdenhet når noe blir vanskelig",
+      "Spørsmål og bidrag inn i samtalen",
+      "Å fullføre det man har begynt på",
+      "Å møte opp og bli værende"
+    ],
+    caution: [
+      "Peterson og kolleger intervjuet elever som observatører hadde vurdert som konsentrerte. Flere av dem fortalte at de ikke hadde tenkt på innholdet i det hele tatt. Samtidig arbeidet mange av dem som så ufokuserte ut, aktivt med å koble det nye til noe de kunne fra før.",
+      "Fredricks og kollegene peker også på at skalaer som slår sammen oppførsel, utholdenhet og deltakelse skjuler viktige forskjeller. En som bryter med formen, men står i oppgaven, og en som følger alle regler uten å arbeide med innholdet, kan havne på samme sted.",
+      "Den synlige atferden er altså et signal, men et svakt et."
+    ],
+    source: "Fredricks, Blumenfeld & Paris (2004), s. 62 og 65–66."
+  },
+
+  emo: {
+    label: "Emosjonelt engasjement",
+    title: "Hvilke reaksjoner la du merke til?",
+    meaning: [
+      "Dette handler om affektive reaksjoner i situasjonen: interesse, glede, kjedsomhet, uro, tristhet. Fredricks og kollegene tar også med reaksjoner på menneskene og på institusjonen, og det Finn kaller identifikasjon: en følelse av å høre til, og en opplevelse av at det som skjer her er verdt noe.",
+      "Eccles og kolleger skiller mellom fire former for verdi, og de er nyttige å ha med seg:"
+    ],
+    meaningList: [
+      "Interesse — gleden ved selve aktiviteten",
+      "Betydning — om dette bekrefter noe ved hvem man er",
+      "Nytte — hva dette kan brukes til senere",
+      "Kostnad — hva det koster å gå inn i det"
+    ],
+    signs: [
+      "Uttrykt interesse for det som skjer",
+      "Nysgjerrighet på innholdet",
+      "Uro, frustrasjon eller kjedsomhet",
+      "Opplevelse av å høre til i rommet",
+      "Reaksjoner på menneskene i rommet"
+    ],
+    caution: [
+      "Målene sier sjelden noe om hva følelsen gjelder. To mennesker kan uttrykke det samme, men den ene er glad for fellesskapet og den andre for innholdet. Kilden til reaksjonen blir stående åpen.",
+      "Forskningen skiller også mellom situasjonsinteresse, som vekkes av noe ved akkurat denne situasjonen og gir seg igjen, og en varigere personlig interesse. Det som er synlig i rommet er som regel det første."
+    ],
+    source: "Fredricks, Blumenfeld & Paris (2004), s. 63 og 66–67."
+  },
+
+  cog: {
+    label: "Kognitivt engasjement",
+    title: "Hva tydet på bearbeiding?",
+    meaning: [
+      "To forskningstradisjoner møtes i dette begrepet. Den ene handler om psykologisk investering: å gå ut over det som kreves, å foretrekke noe krevende, å være fleksibel i møte med problemer. Den andre handler om å være strategisk: å planlegge, følge med på egen forståelse og justere underveis.",
+      "Skillet mellom dype og overflatiske strategier går igjen. Dype strategier innebærer å utdype, koble det nye til det man kan fra før, oppsummere med egne ord og følge med på om man faktisk forstår. Overflatiske strategier sikter mot å komme seg gjennom."
+    ],
+    signs: [
+      "Å knytte det nye til egne erfaringer",
+      "Å lage egne eksempler",
+      "Å be om oppklaring når noe ikke henger sammen",
+      "Å endre framgangsmåte når noe er vanskelig",
+      "Å stoppe opp og gå tilbake til noe man har vært innom"
+    ],
+    caution: [
+      "Tenkning lar seg ikke observere. Den må utledes av det mennesker gjør eller sier. To personer kan se helt like ut mens den ene arbeider seg gjennom innholdet og den andre er ferdig fortest mulig.",
+      "Ordet innsats er dessuten uklart. Det inngår i definisjonene av både atferdsmessig og kognitivt engasjement, og Fredricks og kollegene foreslår å skille mellom innsats som handler om å gjøre arbeidet, og innsats som handler om å forstå stoffet.",
+      "Og en ting til: hva som er mulig å få øye på, avhenger av hva oppgaven åpner for. En oppgave som bare krever gjenkalling gir få tegn på dyp bearbeiding, uansett hvem som sitter der."
+    ],
+    source: "Fredricks, Blumenfeld & Paris (2004), s. 63–64 og 67–68."
+  },
+
+  age: {
+    label: "Agentisk engasjement",
+    title: "Hvordan påvirket de situasjonen?",
+    meaning: [
+      "Reeve og Tseng foreslo i 2011 en fjerde dimensjon, og definerer den som deltagerens konstruktive bidrag inn i det som skjer. Mennesker reagerer på det de møter, men de former det også: de prøver å gjøre innholdet mer personlig, mer interessant, mer relevant for sitt eget liv.",
+      "Forfatterne oppsummerer fem kjennetegn som skiller denne dimensjonen fra de tre andre:"
+    ],
+    meaningList: [
+      "Det kommer før eller underveis, ikke i etterkant",
+      "Det er bevisst og villet",
+      "Det prøver å berike situasjonen",
+      "Det gir deltageren en stemme i vilkårene for egen læring",
+      "Det er forenlig med at den som leder gjør en god jobb"
+    ],
+    signsIntro: "Slik lyder noen av påstandene Reeve og Tseng målte dimensjonen med:",
+    signsQuotes: true,
+    signs: [
+      "«Jeg sier fra om hva jeg tenker og trenger»",
+      "«Jeg prøver å gjøre det vi lærer så relevant for mitt eget liv som mulig»",
+      "«Jeg sier ifra når jeg mener jeg har noe viktig å bidra med»",
+      "«Når noe er interessant, sier jeg det»",
+      "«Når jeg trenger noe, ber jeg om det framfor å sitte stille med det»"
+    ],
+    caution: [
+      "Det er det konstruktive bidraget som teller. Å snakke seg bort fra innholdet, eller å yte motstand mot den som leder, er også å ta ordet, men Reeve og Tseng regner det som noe annet.",
+      "Studien fant at denne dimensjonen forklarte læringsutbytte på egen hånd, ut over det de tre andre forklarte.",
+      "Det går også en vei tilbake. Forskning fra samme miljø viser at den som leder blir mer støttende overfor deltagere som viser engasjement, og mer styrende overfor dem som ikke gjør det. Det deltagerne gjør, former hvordan de blir møtt.",
+      "Forfatterne nevner selv to forbehold. Målet kan blandes sammen med personlighet, siden noen tar ordet lettere enn andre, og de legger til at den innvendingen gjelder alle fire dimensjonene. Studien undersøkte dessuten bare den aktive siden. De som sitter stille og tar imot det som kommer, er vanskeligere å få øye på."
+    ],
+    source: "Reeve & Tseng (2011), s. 258 og 263–266. Studien bygger på 365 elever ved en videregående skole i Taipei."
+  }
+};
+
+
+/* Didaktiske eksempler for dette teamet. Ikke sitater fra kildene. */
+var localExamples = {
+  "beh": {
+    "example": "En deltager leser stille og noterer på sitt førstespråk. En annen svarer raskt på norsk og leser høyt.",
+    "assessment": "Språklig synlighet og høytlesing er ikke det samme som forståelse av innholdet. Den stille deltageren kan være aktivt engasjert.",
+    "move": "Gi en ny, praktisk situasjon og la deltageren velge hvordan forståelsen skal vises: samtale, handling, enkel tekst eller skisse."
+  },
+  "emo": {
+    "example": "En deltager kjenner igjen en situasjon fra arbeidslivet og viser interesse, mens en annen blir usikker fordi hun ikke kjenner ordbruken.",
+    "assessment": "Reaksjonene kan gi innblikk i identitet, erfaring, språk, tilhørighet, lærelyst og faglig forståelse.",
+    "move": "Knytt eksemplet til deltagernes erfaringer uten å kreve personlige opplysninger. Sørg for mulighet til å prøve en forklaring før den vurderes."
+  },
+  "cog": {
+    "example": "En deltager bruker en oversettelse til å forstå teksten, men oppdager at et råd ikke gjelder i den nye situasjonen læreren presenterer.",
+    "assessment": "Å begrunne hvorfor informasjonen må brukes annerledes, kan vise dypere forståelse enn å gjengi formuleringene ordrett.",
+    "move": "Be deltageren anvende innholdet på et nytt, fiktivt tilfelle og forklare valget på en tilgjengelig uttrykksmåte."
+  },
+  "age": {
+    "example": "En deltager ber om en annen forklaring og foreslår et eksempel fra arbeidslivet som gruppa kan undersøke.",
+    "assessment": "Forslaget kan være et konstruktivt bidrag som gjør undervisningen mer relevant. Initiativet sier ikke alene hva deltageren mestrer faglig.",
+    "move": "La deltagerens eksempel påvirke videre arbeid. Avklar sammen hvilke faglige spørsmål eksemplet kan hjelpe dere med å utforske."
+  }
+};
+
+/* ============ Oppbygging av panelet ============ */
+var infoBox      = document.getElementById('info');
+var infoLabel    = document.getElementById('infoLabel');
+var infoTitle    = document.getElementById('infoTitle');
+var infoMeaning  = document.getElementById('infoMeaning');
+var infoSignsIntro = document.getElementById('infoSignsIntro');
+var infoSigns    = document.getElementById('infoSigns');
+var infoCaution  = document.getElementById('infoCaution');
+var infoSource   = document.getElementById('infoSource');
+var infoExample = document.getElementById('infoExample');
+var infoAssessment = document.getElementById('infoAssessment');
+var infoMove = document.getElementById('infoMove');
+
+function fillParagraphs(container, texts){
+  container.innerHTML = '';
+  for (var i = 0; i < texts.length; i++){
+    var p = document.createElement('p');
+    p.textContent = texts[i];
+    container.appendChild(p);
+  }
+}
+
+function showInfo(key, lensEl){
+  var d = dimensions[key];
+  if (!d) return;
+
+  infoLabel.textContent = d.label;
+  infoTitle.textContent = d.title;
+
+  fillParagraphs(infoMeaning, d.meaning);
+  if (d.meaningList){
+    var ul = document.createElement('ul');
+    ul.className = 'info-list';
+    for (var i = 0; i < d.meaningList.length; i++){
+      var li = document.createElement('li');
+      li.textContent = d.meaningList[i];
+      ul.appendChild(li);
+    }
+    infoMeaning.appendChild(ul);
+  }
+
+  infoSignsIntro.textContent = d.signsIntro || '';
+  infoSignsIntro.style.display = d.signsIntro ? 'block' : 'none';
+
+  infoSigns.innerHTML = '';
+  infoSigns.className = 'info-signs' + (d.signsQuotes ? ' info-quotes' : '');
+  for (var j = 0; j < d.signs.length; j++){
+    var s = document.createElement('li');
+    s.textContent = d.signs[j];
+    infoSigns.appendChild(s);
+  }
+
+  fillParagraphs(infoCaution, d.caution);
+  infoSource.textContent = 'Kilde: ' + d.source;
+  var local = localExamples[key];
+  infoExample.textContent = local.example;
+  infoAssessment.textContent = local.assessment;
+  infoMove.textContent = local.move;
+
+  /* Panelet arver fargen fra kortet som er valgt. */
+  var c = getComputedStyle(lensEl);
+  infoBox.style.setProperty('--c', c.getPropertyValue('--c').trim());
+  infoBox.style.setProperty('--c-text', c.getPropertyValue('--c-text').trim());
+
+  infoBox.classList.add('show');
+}
+
+function hideInfo(){
+  infoBox.classList.remove('show');
+}
+
+/* ============ Valg av blikk ============ */
+var selectedTitle = '';
+var selectedQuestion = '';
+
+var lensButtons = document.querySelectorAll('.lens');
+
+for (var i = 0; i < lensButtons.length; i++) {
+  lensButtons[i].addEventListener('click', function(){
+    var alreadyOpen = this.getAttribute('aria-pressed') === 'true';
+
+    for (var j = 0; j < lensButtons.length; j++) {
+      lensButtons[j].setAttribute('aria-pressed', 'false');
+    }
+
+    if (alreadyOpen) {
+      /* Et nytt trykk på samme kort lukker panelet igjen. */
+      selectedTitle = '';
+      selectedQuestion = '';
+      hideInfo();
+      return;
+    }
+
+    this.setAttribute('aria-pressed', 'true');
+    selectedTitle = this.getAttribute('data-title');
+    selectedQuestion = this.getAttribute('data-q');
+    showInfo(this.getAttribute('data-dim'), this);
+    infoBox.scrollIntoView({behavior:'smooth', block:'nearest'});
+  });
+}
+
+document.getElementById('resetBtn').addEventListener('click', function(){
+  selectedTitle = '';
+  selectedQuestion = '';
+  document.getElementById('ownNote').value = '';
+  document.getElementById('groupNote').value = '';
+  for (var i = 0; i < lensButtons.length; i++) {
+    lensButtons[i].setAttribute('aria-pressed', 'false');
+  }
+  hideInfo();
+});
+
+/* ============ Nedlasting ============ */
+document.getElementById('downloadBtn').addEventListener('click', function(){
+  var own = document.getElementById('ownNote').value.trim();
+  var group = document.getElementById('groupNote').value.trim();
+
+  if (!selectedTitle && !own && !group) {
+    alert('Velg gjerne et spørsmål eller skriv noen stikkord før du laster ned.');
+    return;
+  }
+
+  if (!(window.jspdf && window.jspdf.jsPDF)) {
+    downloadTxt(own, group);
+    return;
+  }
+
+  var doc = new window.jspdf.jsPDF();
+  var margin = 20;
+  var pageWidth = doc.internal.pageSize.getWidth();
+  var usable = pageWidth - margin * 2;
+  var y = 24;
+
+  function textBlock(text, size, bold, color){
+    if (!text) return;
+    doc.setFont('helvetica', bold ? 'bold' : 'normal');
+    doc.setFontSize(size);
+    doc.setTextColor.apply(doc, color || [40,40,40]);
+    var lines = doc.splitTextToSize(text, usable);
+    for (var i = 0; i < lines.length; i++) {
+      if (y > 278) {
+        doc.addPage();
+        y = 24;
+      }
+      doc.text(lines[i], margin, y);
+      y += size * 0.46;
+    }
+    y += 4;
+  }
+
+  textBlock("Fra engasjement til tegn på læring – Voksenopplæringsteamet", 17, true, [30,30,30]);
+
+  if (selectedTitle) {
+    textBlock(selectedTitle, 12, true, [110,75,87]);
+    textBlock(selectedQuestion, 11, false, [60,60,60]);
+  }
+
+  if (own) {
+    textBlock('Mine stikkord', 12, true, [30,30,30]);
+    textBlock(own, 11, false, [60,60,60]);
+  }
+
+  if (group) {
+    textBlock('Én innsikt vi vil ta med videre', 12, true, [30,30,30]);
+    textBlock(group, 11, false, [60,60,60]);
+  }
+
+  doc.save("refleksjon-engasjement-voksenopplaering.pdf");
+});
+
+function downloadTxt(own, group){
+  var lines = ["Fra engasjement til tegn på læring – Voksenopplæringsteamet", ''];
+
+  if (selectedTitle) {
+    lines.push(selectedTitle);
+    lines.push(selectedQuestion);
+    lines.push('');
+  }
+
+  if (own) {
+    lines.push('Mine stikkord:');
+    lines.push(own);
+    lines.push('');
+  }
+
+  if (group) {
+    lines.push('Én innsikt vi vil ta med videre:');
+    lines.push(group);
+  }
+
+  var blob = new Blob([lines.join('\n')], {type:'text/plain;charset=utf-8'});
+  var url = URL.createObjectURL(blob);
+  var a = document.createElement('a');
+  a.href = url;
+  a.download = "refleksjon-engasjement-voksenopplaering.txt";
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+</script>
+</body>
+</html>
