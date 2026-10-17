@@ -1,6 +1,126 @@
-<!doctype html><html lang="nb"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#1e2a45"><title>Læring i en digital tid · Pedagogiske ressurser</title><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Fraunces:ital,wght@0,9..144,300;1,9..144,300&display=swap" rel="stylesheet"><link rel="stylesheet" href="style.css"></head><body><a class="skip" href="#main">Hopp til innholdet</a><header class="topbar"><div class="container top-inner"><a class="brand" href="index.html"><span aria-hidden="true" class="logo">DS</span><span class="brand-text">Pedagogiske ressurser</span></a><nav class="top-links" aria-label="Hovedmeny"><a aria-current="page" href="#ressurser">Utforsk ressursene</a></nav></div></header><main id="main"><section class="hero"><div class="container"><div class="eyebrow">Læring · Fagpraksiser · Vurdering · Kunstig intelligens</div><h1>Læring i en <em>digital tid</em></h1><p class="lead">Fire selvstendige fagressurser for lærere og pedagoger. Velg det perspektivet du vil undersøke. Hver ressurs kan brukes uavhengig av de andre.</p><p class="hero-quiet">Mari-Ann Letnes · NTNU · DigSkole</p></div></section><section class="section" id="ressurser"><div class="container"><div class="section-header"><div class="kicker">Velg en ressurs</div><h2 class="section-title">Fire faglige innganger</h2><p class="section-sub">Begynn med spørsmålet som er relevant for deg eller teamet ditt.</p></div><div class="intro-grid">
-<a class="intro-card" href="ki-i-pedagogisk-praksis/index.html"><span class="card-number">01 · KI-funksjoner</span><h3>KI i pedagogisk praksis</h3><p>Lærerens profesjonelle bruk og KI som ressurs i elevenes læringsarbeid. Åtte kategorier og eksempler for fire skoleslag.</p><span class="card-next">Utforsk KI i pedagogisk praksis →</span></a>
-<a class="intro-card" href="fagpraksiser/index.html"><span class="card-number">02 · Faglig kunnskapsarbeid</span><h3>Fagpraksiser og digitalisering</h3><p>Undersøke, fortolke, modellere, skape, argumentere og utøve. Hva vil det si å utvikle kompetanse i fag?</p><span class="card-next">Utforsk fagpraksisene →</span></a>
-<a class="intro-card" href="a-se-laering/index.html"><span class="card-number">03 · Vurdering</span><h3>Å se læring</h3><p>Utforsk de fire dimensjonene av engasjement. Gå fra observasjoner til tegn på læring, det formative blikket og vurdering.</p><span class="card-next">Utforsk vurdering →</span></a>
-<a class="intro-card" href="design-for-laering/index.html"><span class="card-number">04 · Didaktisk planlegging</span><h3>Design for læring</h3><p>Klafkis doble åpning og Selander og Kress. Interaktive planleggingsverktøy for fire skoleslag.</p><span class="card-next">Start planleggingen →</span></a>
-</div><p class="muted-note" style="margin-top:2rem">Ressursene er utviklet som selvstendige faglige innganger og kan brukes både individuelt og i profesjonsfellesskap. Skoleslag velges inne i den enkelte ressursen.</p></div></section></main><footer class="footer"><div class="container footer-row"><div><strong>Mari-Ann Letnes · NTNU</strong><p>Ressursportal for undervisning, læring og vurdering.</p></div><div class="footer-nav"><a href="#ressurser">Til ressursene ↑</a></div></div></footer></body></html>
+<!doctype html>
+<html lang="nb">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#1e2a45">
+  <meta name="description" content="Fire selvstendige pedagogiske ressurser om engasjement, læringsdesign, vurdering, fagpraksiser og KI.">
+  <title>Læring i en digital tid · Pedagogiske ressurser</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Fraunces:ital,wght@0,9..144,300;1,9..144,300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Bare forsiden: den faglige sammenhengen, uten å koble sammen ressursene teknisk. */
+    .front-journey { padding: 61px 0 38px; }
+    .front-journey .section-title { max-width: 770px; }
+    .front-journey .section-sub { max-width: 780px; }
+    .journey-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 15px; margin-top: 27px; }
+    .journey-card { position: relative; min-height: 225px; padding: 27px 26px 26px; background: #fffdf8; border: 1px solid #d9d5cc; border-radius: 14px; }
+    .journey-card:nth-child(2) { background: #e8e9e2; }
+    .journey-card:nth-child(3) { background: #eee3e8; }
+    .journey-number { display: block; font-size: 11px; font-weight: 650; text-transform: uppercase; letter-spacing: .13em; color: #5e6e67; margin-bottom: 18px; }
+    .journey-card:nth-child(3) .journey-number { color: #906a7c; }
+    .journey-card h3 { font: 350 clamp(23px,2.5vw,29px)/1.22 'Fraunces',Georgia,serif; margin: 0 0 12px; color: #1e2a45; }
+    .journey-card p { font-size: 14px; color: #555250; line-height: 1.73; margin: 0; }
+    .journey-bridge { margin-top: 22px; border-top: 1px solid #cac6bc; padding-top: 19px; color: #555250; font-size: 14px; line-height: 1.7; }
+    .journey-bridge strong { color: #1e2a45; }
+    .front-resources { padding-top: 36px; }
+    .front-resources .intro-card { min-height: 285px; padding: 28px 29px 25px; }
+    .front-resources .intro-card h3 { font-size: clamp(22px,2.5vw,26px); margin: 2px 0 10px; }
+    .front-resources .intro-card p { color: #555250; }
+    .front-resources .intro-card .card-next { margin-top: auto; color: #5e6e67; font-size: 13px; font-weight: 650; }
+    .front-resources .intro-card:focus-visible { outline: 3px solid #c6794d; outline-offset: 4px; }
+    .front-resources .resource-caption { font-size: 14px; color: #5a5650; margin-top: 22px; }
+    @media (max-width: 800px) { .journey-grid { grid-template-columns: 1fr; } .journey-card { min-height: 0; padding: 22px; } .journey-number { margin-bottom: 9px; } }
+    @media (max-width: 730px) { .front-resources .intro-card { min-height: 0; } }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">Hopp til innholdet</a>
+  <header class="topbar">
+    <div class="container top-inner">
+      <a class="brand" href="index.html"><span aria-hidden="true" class="logo">DS</span><span class="brand-text">Pedagogiske ressurser</span></a>
+      <nav class="top-links" aria-label="Hovedmeny"><a aria-current="page" href="#ressurser">Utforsk ressursene</a></nav>
+    </div>
+  </header>
+  <main id="main">
+    <section class="hero">
+      <div class="container">
+        <div class="eyebrow">Engasjement · Design for læring · Vurdering</div>
+        <h1>Læring i en <em>digital tid</em></h1>
+        <p class="lead">Hvordan får vi øye på elevenes læringsarbeid, legger til rette for faglig forståelse og utvikler et godt grunnlag for vurdering?</p>
+        <p class="hero-quiet">Mari-Ann Letnes · NTNU · DigSkole</p>
+      </div>
+    </section>
+    <section class="front-journey" aria-labelledby="journey-heading">
+      <div class="container">
+        <div class="section-header">
+          <div class="kicker">En faglig rød tråd</div>
+          <h2 class="section-title" id="journey-heading">Tre perspektiver på elevenes læring</h2>
+          <p class="section-sub">Vi kan undersøke læringsarbeidet fra tre sider. Sammen åpner de for en rikere forståelse av hva som skjer i undervisningen.</p>
+        </div>
+        <div class="journey-grid">
+          <article class="journey-card">
+            <span class="journey-number">01 · Engasjement</span>
+            <h3>Hva ser vi?</h3>
+            <p>Hvordan kommer elevenes deltakelse, følelser, tenkning og konstruktive initiativ til uttrykk i læringsarbeidet?</p>
+          </article>
+          <article class="journey-card">
+            <span class="journey-number">02 · Design for læring</span>
+            <h3>Hva åpner vi for?</h3>
+            <p>Hvordan kan læreren iscenesette faglige aktiviteter som gir elevene muligheter til å utforske, bearbeide og utvikle forståelse?</p>
+          </article>
+          <article class="journey-card">
+            <span class="journey-number">03 · Vurdering</span>
+            <h3>Hva lærer de?</h3>
+            <p>Hvordan kan læreren undersøke tegn på faglig forståelse, fortolke elevuttrykk og følge læringen videre?</p>
+          </article>
+        </div>
+        <p class="journey-bridge"><strong>Digitalisering og KI påvirker fagpraksisene:</strong> hvordan elever undersøker, skaper og uttrykker kunnskap – og hva læreren får mulighet til å se og vurdere.</p>
+      </div>
+    </section>
+    <section class="section front-resources" id="ressurser" aria-labelledby="resources-heading">
+      <div class="container">
+        <div class="section-header">
+          <div class="kicker">Utforsk videre</div>
+          <h2 class="section-title" id="resources-heading">Fire selvstendige fagressurser</h2>
+          <p class="section-sub">Velg det faglige spørsmålet du ønsker å arbeide med. Ressursene kan brukes hver for seg, og skoleslag velges inne i den enkelte ressursen.</p>
+        </div>
+        <div class="intro-grid">
+          <a class="intro-card" href="a-se-laering/index.html">
+            <span class="card-number">01 · Engasjement og vurdering</span>
+            <h3>Å se læring</h3>
+            <p>De fire dimensjonene av engasjement. Fra observasjoner av læringsarbeid til tegn på faglig forståelse, det formative blikket og vurdering.</p>
+            <span class="card-next">Utforsk engasjement og vurdering →</span>
+          </a>
+          <a class="intro-card" href="design-for-laering/index.html">
+            <span class="card-number">02 · Didaktisk planlegging</span>
+            <h3>Design for læring</h3>
+            <p>Klafkis doble åpning og Selander og Kress' design for læring. Planleggingsverktøy for ulike skoleslag.</p>
+            <span class="card-next">Utforsk læringsdesign →</span>
+          </a>
+          <a class="intro-card" href="fagpraksiser/index.html">
+            <span class="card-number">03 · Faglig kunnskapsarbeid</span>
+            <h3>Fagpraksiser og digitalisering</h3>
+            <p>Hvordan arbeider elever med å undersøke, fortolke, modellere, skape, argumentere og utøve – og hvordan påvirker digitaliseringen arbeidet?</p>
+            <span class="card-next">Utforsk fagpraksisene →</span>
+          </a>
+          <a class="intro-card" href="ki-i-pedagogisk-praksis/index.html">
+            <span class="card-number">04 · KI-funksjoner</span>
+            <h3>KI i pedagogisk praksis</h3>
+            <p>Åtte pedagogiske KI-funksjoner: lærerens profesjonelle arbeid og muligheter for KI som ressurs i læringsarbeidet, tilpasset skoleslag.</p>
+            <span class="card-next">Utforsk KI i pedagogisk praksis →</span>
+          </a>
+        </div>
+        <p class="resource-caption">Ressursene er utviklet for selvstendig bruk og for refleksjon i profesjonsfellesskapet.</p>
+      </div>
+    </section>
+  </main>
+  <footer class="footer">
+    <div class="container footer-row">
+      <div><strong>Mari-Ann Letnes · NTNU</strong><p>Ressursportal for undervisning, læring og vurdering.</p></div>
+      <div class="footer-nav"><a href="#ressurser">Til ressursene ↑</a></div>
+    </div>
+  </footer>
+</body>
+</html>
