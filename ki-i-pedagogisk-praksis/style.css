@@ -185,6 +185,8 @@ select{border-radius:8px;padding:8px}
    Bildeformat: 4:3. Stil følger DigSkoles palett.
    ========================================================== */
 .intro-grid .intro-card.ki-photo-card {
+  min-width: 0;
+  max-width: 100%;
   padding: 0;
   gap: 0;
   overflow: hidden;
@@ -202,9 +204,11 @@ select{border-radius:8px;padding:8px}
   position: relative;
   overflow: hidden;
   width: 100%;
-  aspect-ratio: 16 / 7.5;
+  height: 0;
+  min-height: 0;
+  padding-top: 46.875%; /* 16:7.5 – stabilt også i Safari */
   background: #eae7df;
-  flex: none;
+  flex: 0 0 auto;
 }
 .intro-grid .ki-photo-card .ki-card-photo::after {
   content: '';
@@ -214,8 +218,14 @@ select{border-radius:8px;padding:8px}
   pointer-events: none;
 }
 .intro-grid .ki-photo-card .ki-card-photo img {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
   width: 100%;
   height: 100%;
+  max-width: none;
   display: block;
   object-fit: cover;
   object-position: center 45%;
@@ -299,7 +309,10 @@ select{border-radius:8px;padding:8px}
 .ki-category-hero .ki-category-hero-image {
   margin: 0;
   width: 100%;
-  aspect-ratio: 4 / 3;
+  height: 0;
+  min-width: 0;
+  min-height: 0;
+  padding-top: 75%; /* 4:3, uten Safaris intrinsic image-høyde */
   overflow: hidden;
   border: 1px solid rgba(255,255,255,.25);
   border-radius: 16px;
@@ -315,9 +328,15 @@ select{border-radius:8px;padding:8px}
   pointer-events: none;
 }
 .ki-category-hero .ki-category-hero-image img {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
   display: block;
   width: 100%;
   height: 100%;
+  max-width: none;
   object-fit: cover;
 }
 /* Fire kort per rad som i ønsket forhåndsvisning; flytende på nettbrett/mobil. */
@@ -338,8 +357,8 @@ select{border-radius:8px;padding:8px}
   .ki-cards-index .intro-grid { grid-template-columns: 1fr; }
   .hero.ki-category-hero { padding: 2.5rem 1.3rem; }
   .ki-category-hero .ki-category-hero-grid { grid-template-columns: 1fr; gap: 1.3rem; }
-  .ki-category-hero .ki-category-hero-image { aspect-ratio: 16 / 9; }
-  .intro-grid .ki-photo-card .ki-card-photo { aspect-ratio: 16 / 8.5; }
+  .ki-category-hero .ki-category-hero-image { padding-top: 56.25%; }
+  .intro-grid .ki-photo-card .ki-card-photo { padding-top: 53.125%; }
 }
 @media (max-width: 600px) {
   .intro-grid .ki-photo-card .ki-card-body { padding: 1.25rem 1.25rem 1.45rem; }
