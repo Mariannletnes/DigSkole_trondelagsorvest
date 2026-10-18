@@ -91,3 +91,264 @@ a:focus-visible,button:focus-visible{outline:3px solid #9e7a8a;outline-offset:4p
 .footer-row{align-items:flex-start}
 select{border-radius:8px;padding:8px}
 @media (max-width:730px){.intro-grid,.cols2,.cols3{grid-template-columns:1fr}.hero-short{padding:3rem 1.3rem}.resource-shell{padding:2rem 1.3rem}.stage-choice{flex:1 1 48%}}
+
+/* ============================================================
+   DigSkole – tydeligere kategorikort på forsiden av KI-ressursen
+   Kun visuell justering. Ingen endringer i innhold eller funksjon.
+   ============================================================ */
+.intro-grid {
+  gap: 1.15rem;
+}
+.intro-grid .intro-card {
+  background: #e4e8e1;
+  color: var(--marine);
+  border: 1px solid #c5cec5;
+  border-left: 4px solid var(--forest);
+  border-radius: 15px;
+  padding: 1.55rem 1.75rem 1.45rem;
+  gap: .55rem;
+  min-height: 0;
+  box-shadow: 0 4px 15px rgba(30, 42, 69, .065);
+  transition: background .18s ease, border-color .18s ease,
+              transform .18s ease, box-shadow .18s ease;
+}
+.intro-grid .intro-card .card-number {
+  font-size: .73rem;
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: .13em;
+  color: #485e52;
+  margin: 0 0 .18rem;
+}
+.intro-grid .intro-card h3 {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: clamp(1.58rem, 2.6vw, 1.95rem);
+  font-weight: 400;
+  line-height: 1.24;
+  letter-spacing: -.018em;
+  color: var(--marine);
+  margin: 0;
+}
+.intro-grid .intro-card p {
+  font-size: 1.055rem;
+  line-height: 1.58;
+  color: #303b48;
+  margin: .15rem 0 .2rem;
+}
+.intro-grid .intro-card .card-next {
+  font-size: .96rem;
+  font-weight: 700;
+  line-height: 1.35;
+  color: #354e43;
+  margin-top: auto;
+  padding-top: .55rem;
+}
+.intro-grid .intro-card:hover,
+.intro-grid .intro-card:focus-visible {
+  background: #eef1eb;
+  border-color: var(--forest);
+  box-shadow: 0 10px 26px rgba(30, 42, 69, .13);
+  transform: translateY(-2px);
+}
+
+/* Andre gruppe: elevenes læringsarbeid får en diskret gammelrosa tone. */
+.intro-grid + .section-header + .intro-grid .intro-card {
+  background: #eee5e9;
+  border-color: #d5c0ca;
+  border-left-color: var(--mauve);
+}
+.intro-grid + .section-header + .intro-grid .intro-card .card-number,
+.intro-grid + .section-header + .intro-grid .intro-card .card-next {
+  color: #744f61;
+}
+.intro-grid + .section-header + .intro-grid .intro-card:hover,
+.intro-grid + .section-header + .intro-grid .intro-card:focus-visible {
+  background: #f7edf2;
+  border-color: var(--mauve);
+}
+@media (max-width: 600px) {
+  .intro-grid .intro-card {
+    padding: 1.3rem 1.35rem;
+  }
+  .intro-grid .intro-card h3 {
+    font-size: 1.65rem;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .intro-grid .intro-card { transition: none; }
+}
+
+
+/* ==========================================================
+   Åtte KI-innganger: bildekort og kategoriens eget bilde
+   Bilder i bilder/ med brukerens opprinnelige filnavn.
+   Bildeformat: 4:3. Stil følger DigSkoles palett.
+   ========================================================== */
+.intro-grid .intro-card.ki-photo-card {
+  padding: 0;
+  gap: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  background: #fffdf9;
+  border: 1px solid #d4cfc5;
+  border-radius: 16px;
+  box-shadow: 0 5px 18px rgba(30,42,69,.075);
+}
+.intro-grid + .section-header + .intro-grid .intro-card.ki-photo-card.ki-card-learner { background: #fffafa; border-color: #d9cbd0; }
+.intro-grid .ki-photo-card .ki-card-photo {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  aspect-ratio: 16 / 7.5;
+  background: #eae7df;
+  flex: none;
+}
+.intro-grid .ki-photo-card .ki-card-photo::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(250,247,242,.21);
+  pointer-events: none;
+}
+.intro-grid .ki-photo-card .ki-card-photo img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center 45%;
+  transition: transform .25s ease;
+}
+.intro-grid .ki-photo-card:hover .ki-card-photo img { transform: scale(1.025); }
+.intro-grid .ki-photo-card .ki-photo-badge {
+  position: absolute;
+  bottom: -1px;
+  left: 22px;
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  border: 4px solid #fffdf9;
+  border-radius: 50%;
+  background: var(--marine);
+  color: white;
+  font: 350 1.45rem 'Fraunces', Georgia, serif;
+  z-index: 2;
+}
+.intro-grid .ki-photo-card .ki-card-body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: .6rem;
+  padding: 1.3rem 1.6rem 1.6rem;
+  width: 100%;
+}
+.intro-grid .ki-photo-card .card-number {
+  font-size: .72rem;
+  margin: 0;
+  color: #5c6c64;
+}
+.intro-grid .ki-photo-card.ki-card-learner .card-number { color: #8a6578; }
+.intro-grid .intro-card.ki-photo-card h3 {
+  margin: 0;
+  font: 350 clamp(1.6rem, 2.45vw, 2.05rem)/1.18 'Fraunces', Georgia, serif;
+  letter-spacing: -.018em;
+}
+.intro-grid .intro-card.ki-photo-card p {
+  color: #424650;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  margin: 0;
+}
+.intro-grid .ki-photo-card .card-next {
+  display: inline-flex;
+  align-items: center;
+  gap: .3rem;
+  margin-top: auto;
+  padding-top: .6rem;
+  font-size: .94rem;
+  color: #3e6253;
+}
+.intro-grid .ki-photo-card.ki-card-learner .card-next { color: #885b6e; }
+.intro-grid .intro-card.ki-photo-card:hover,
+.intro-grid .intro-card.ki-photo-card:focus-visible,
+.intro-grid + .section-header + .intro-grid .intro-card.ki-photo-card:hover,
+.intro-grid + .section-header + .intro-grid .intro-card.ki-photo-card:focus-visible {
+  background: #ffffff;
+  border-color: #a2aca2;
+  box-shadow: 0 13px 29px rgba(30,42,69,.12);
+  transform: translateY(-2px);
+}
+/* Kategorisider: samme bilde som på inngangskortet. */
+.hero.ki-category-hero { padding: 3.4rem 3rem; }
+.ki-category-hero .ki-category-hero-grid {
+  max-width: 1080px;
+  margin: auto;
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(275px, .87fr);
+  align-items: center;
+  gap: clamp(1.6rem, 4vw, 3.8rem);
+}
+.ki-category-hero .ki-category-hero-copy { min-width: 0; }
+.ki-category-hero h1 { font-size: clamp(2.65rem, 4.7vw, 4.65rem); }
+.ki-category-hero .ki-category-hero-image {
+  margin: 0;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,.25);
+  border-radius: 16px;
+  background: #f0ece2;
+  box-shadow: 0 15px 45px rgba(0,0,0,.12);
+  position: relative;
+}
+.ki-category-hero .ki-category-hero-image::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(250,247,242,.12);
+  pointer-events: none;
+}
+.ki-category-hero .ki-category-hero-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+/* Fire kort per rad som i ønsket forhåndsvisning; flytende på nettbrett/mobil. */
+.ki-cards-index .container { width: min(1340px, calc(100% - 64px)); }
+.ki-cards-index .intro-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.ki-cards-index .intro-grid .intro-card.ki-photo-card h3 { font-size: clamp(1.3rem, 1.6vw, 1.7rem); }
+.ki-cards-index .intro-grid .intro-card.ki-photo-card p { font-size: .93rem; line-height: 1.6; }
+.ki-cards-index .intro-grid .ki-photo-card .ki-card-body { padding: 1.25rem 1.1rem 1.4rem; }
+.ki-cards-index .intro-grid .ki-photo-card .ki-photo-badge { left: 15px; width: 43px; height: 43px; }
+@media (max-width: 1140px) {
+  .ki-cards-index .intro-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .ki-cards-index .intro-grid .intro-card.ki-photo-card h3 { font-size: 1.8rem; }
+  .ki-cards-index .intro-grid .intro-card.ki-photo-card p { font-size: 1.02rem; }
+  .ki-cards-index .intro-grid .ki-photo-card .ki-card-body { padding: 1.4rem 1.5rem 1.55rem; }
+}
+@media (max-width: 730px) {
+  .ki-cards-index .container { width: min(100% - 32px, 1120px); }
+  .ki-cards-index .intro-grid { grid-template-columns: 1fr; }
+  .hero.ki-category-hero { padding: 2.5rem 1.3rem; }
+  .ki-category-hero .ki-category-hero-grid { grid-template-columns: 1fr; gap: 1.3rem; }
+  .ki-category-hero .ki-category-hero-image { aspect-ratio: 16 / 9; }
+  .intro-grid .ki-photo-card .ki-card-photo { aspect-ratio: 16 / 8.5; }
+}
+@media (max-width: 600px) {
+  .intro-grid .ki-photo-card .ki-card-body { padding: 1.25rem 1.25rem 1.45rem; }
+  .intro-grid .intro-card.ki-photo-card h3 { font-size: 1.7rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .intro-grid .ki-photo-card .ki-card-photo img { transition: none; }
+}
+@media print {
+  .intro-grid .ki-photo-card .ki-card-photo img,
+  .ki-category-hero .ki-category-hero-image img { print-color-adjust: exact; }
+}
